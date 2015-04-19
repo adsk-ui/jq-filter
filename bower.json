@@ -1,0 +1,24 @@
+{
+  "name": "jq-filter",
+  "version": "0.0.3",
+  "authors": [
+    "Michael Schock <michael.schock@autodesk.com>"
+  ],
+  "description": "Filters a jquery wrapped collection using data attributes, with callbacks along the way.  Default regexes for search and highlighting provided.",
+  "main": "dist/jqFilter.js",
+  "moduleType": [
+    "amd",
+    "es6"
+  ],
+  "keywords": [
+    "jquery-plugin"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
