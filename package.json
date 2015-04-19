@@ -1,0 +1,26 @@
+{
+  "name": "jq-filter",
+  "version": "0.0.4",
+  "description": "Filters a jquery wrapped collection using data attributes, with callbacks along the way.  Default regexes for search and highlighting provided.",
+  "main": "dist/jqFilter.js",
+  "dependencies": {},
+  "devDependencies": {
+    "intern": "^2.2.2"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/intern-client config=tests/intern"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adsk-ui/jq-filter.git"
+  },
+  "keywords": [
+    "jquery-plugin"
+  ],
+  "author": "Michael Schock <michael.schock@autodesk.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adsk-ui/jq-filter/issues"
+  },
+  "homepage": "https://github.com/adsk-ui/jq-filter"
+}
