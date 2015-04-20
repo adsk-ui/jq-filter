@@ -7,10 +7,8 @@ define([
         name: 'jqFilter',
 
         findAndModify: function() {
-            assert.strictEqual(hello.greet('Murray'), 'Hello, Murray!',
-                'hello.greet should return a greeting for the person named in the first argument');
-            assert.strictEqual(hello.greet(), 'Hello, world!',
-                'hello.greet with no arguments should return a greeting to "world"');
+            assert.strictEqual(jqFilter.findAndModify(), 0,
+                'jqFilter.findAndModify should return 0 when invoked without any params');
         }
     });
 });
