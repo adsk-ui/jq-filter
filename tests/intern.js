@@ -53,7 +53,8 @@ define({
 	},
 
 	// Non-functional test suite(s) to run in each browser
-	suites: [ /* 'myPackage/tests/foo', 'myPackage/tests/bar' */ ],
+	// suites: [ /* 'myPackage/tests/foo', 'myPackage/tests/bar' */ ],
+	suites: [ 'tests/jqFilter' ],
 
 	// Functional test suite(s) to run in each browser once non-functional tests are completed
 	functionalSuites: [ /* 'myPackage/tests/functional' */ ],

@@ -30,7 +30,7 @@ define(function(require) {
             return results;
         },
 
-        generateRegex: function(strings) {
+        generateRegex = function(strings) {
             var regexString = '';
 
             for (var i = 0; i < strings.length; i++) {
@@ -40,7 +40,7 @@ define(function(require) {
             return new RegExp(regexString, 'ig');
         },
 
-        highlight: function(text, keys) {
+        highlight = function(text, keys) {
             var regexString = '';
 
             for (var i = 0; i < keys.length; i++) {
@@ -51,11 +51,11 @@ define(function(require) {
             }
 
             return text.replace(new RegExp(regexString, 'ig'), '<span class="highlight" style="background-color: yellow;">$&</span>');
-        },
+        };
 
-        return {
-            findAndModify: findAndModify,
-            generateRegex: generateRegex,
-            highlight: highlight
-        }
+    return {
+        findAndModify: findAndModify,
+        generateRegex: generateRegex,
+        highlight: highlight
+    }
 });
