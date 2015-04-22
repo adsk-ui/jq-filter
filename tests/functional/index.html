@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>jq-filter sample</title>
+</head>
+
+<body>
+    <input type="text" id="searchBox"></input>
+    <div id="list"></div>
+    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../dist/lib/require.js"></script>
+    <script>
+    $(function() {
+        var $list = $('#list'),
+            i = 0;
+        for (; i < 10; i++) {
+            $list.append('<div data-search="' + i + '">' + i + '</div>');
+        }
+        require(["../../dist/jqFilter"], function(jqFilter) {
+            $('#searchBox').on('keyup', function() {
+                var $searchBox = $('#searchBox'),
+                    sanitizedSearchStrings = $searchBox.val().split(' '),
+                    searchRegex = jqFilter.generateRegex(sanitizedSearchStrings),
+                    results = 0,
+                    conditions = [{
+                        'key': 'search',
+                        'val': searchRegex
+                    }],
+                    results = jqFilter.findAndModify({
+                        '$selector': $('#list div'),
+                        'conditions': conditions,
+                        'foundCallback': function($elem) {
+                            $elem.show();
+                            $elem.find('.name').html(jqFilter.highlight($elem.data('search'), sanitizedSearchStrings));
+                        },
+                        'notFoundCallback': function($elem) {
+                            $elem.hide();
+                        }
+                    });
+            });
+        });
+    });
+    </script>
+</body>
+
+</html>

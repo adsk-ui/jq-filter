@@ -5,7 +5,8 @@
   "main": "dist/jqFilter.js",
   "dependencies": {},
   "devDependencies": {
-    "intern": "^2.2.2"
+    "intern": "^2.2.2",
+    "selenium-standalone": "^4.4.0"
   },
   "scripts": {
     "test": "./node_modules/.bin/intern-client config=tests/intern"

@@ -12,8 +12,9 @@ define(function(require) {
 
             options.$selector.each(function() {
                 var $elem = $(this),
-                    found = true;
-                for (var i = 0; i < options.conditions.length; i++) {
+                    found = true,
+                    i = 0;
+                for (; i < options.conditions.length; i++) {
                     if (options.conditions[i]['val'].test($elem.data(options.conditions[i]['key'])) === false) {
                         found = false;
                         break;
@@ -31,9 +32,10 @@ define(function(require) {
         },
 
         generateRegex = function(strings) {
-            var regexString = '';
+            var regexString = '',
+                i = 0;
 
-            for (var i = 0; i < strings.length; i++) {
+            for (; i < strings.length; i++) {
                 regexString += '(?=.*' + strings[i] + ')';
             }
 
@@ -41,16 +43,17 @@ define(function(require) {
         },
 
         highlight = function(text, keys) {
-            var regexString = '';
+            var regexString = '',
+                i = 0;
 
-            for (var i = 0; i < keys.length; i++) {
+            for (; i < keys.length; i++) {
                 regexString += '(' + keys[i] + ')';
                 if (i < keys.length - 1) {
                     regexString += '|';
                 }
             }
 
-            return text.replace(new RegExp(regexString, 'ig'), '<span class="highlight" style="background-color: yellow;">$&</span>');
+            return (new String(text)).replace(new RegExp(regexString, 'ig'), '<span class="highlight" style="background-color: yellow;">$&</span>');
         };
 
     return {
