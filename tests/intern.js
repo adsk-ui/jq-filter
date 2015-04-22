@@ -55,11 +55,7 @@ define({
 
     // Configuration options for the module loader; any AMD configuration options supported by the specified AMD loader
     // can be used here
-    loader: {
-    	'paths': {
-    		'cheerio': '../node_modules/cheerio/index'
-    	}
-    },
+    loader: {},
 
     // Non-functional test suite(s) to run in each browser
     // suites: [ /* 'myPackage/tests/foo', 'myPackage/tests/bar' */ ],
