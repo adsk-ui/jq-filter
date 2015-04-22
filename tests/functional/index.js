@@ -23,17 +23,14 @@ define([
         'two': function() {
             return this.remote
                 .get(require.toUrl('./index.html'))
-                .setFindTimeout(5000)
                 .findById('searchBox')
                 .click()
                 .type('test')
                 .end()
-                .setFindTimeout(10000)
                 .findById('list')
                 .findAllByTagName('div')
                 .isDisplayed()
                 .then(function(elems) {
-                    console.log(elems);
                     var count = 0,
                         i = 0;
                     for (; i < elems.length; i++) {
@@ -49,12 +46,10 @@ define([
         'three': function() {
             return this.remote
                 .get(require.toUrl('./index.html'))
-                .setFindTimeout(5000)
                 .findById('searchBox')
                 .click()
                 .type('0')
                 .end()
-                .setFindTimeout(10000)
                 .findById('list')
                 .findAllByTagName('div')
                 .isDisplayed()
