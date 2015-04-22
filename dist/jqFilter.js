@@ -35,8 +35,10 @@ define(function(require) {
             var regexString = '',
                 i = 0;
 
-            for (; i < strings.length; i++) {
-                regexString += '(?=.*' + strings[i] + ')';
+            if (strings && strings.length && strings.length > 0) {
+                for (; i < strings.length; i++) {
+                    regexString += '(?=.*' + strings[i] + ')';
+                }
             }
 
             return new RegExp(regexString, 'ig');
@@ -46,10 +48,16 @@ define(function(require) {
             var regexString = '',
                 i = 0;
 
-            for (; i < keys.length; i++) {
-                regexString += '(' + keys[i] + ')';
-                if (i < keys.length - 1) {
-                    regexString += '|';
+            if (!text || !keys) {
+                return undefined;
+            }
+
+            if (keys && keys.length && keys.length > 0) {
+                for (; i < keys.length; i++) {
+                    regexString += '(' + keys[i] + ')';
+                    if (i < keys.length - 1) {
+                        regexString += '|';
+                    }
                 }
             }
 
