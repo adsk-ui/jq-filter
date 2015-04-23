@@ -13,8 +13,9 @@ define(function(require) {
             options.$selector.each(function() {
                 var $elem = $(this),
                     found = true,
-                    i = 0;
-                for (; i < options.conditions.length; i++) {
+                    i = 0,
+                    len = options.conditions.length;
+                for (; i < len; i++) {
                     if (options.conditions[i]['val'].test($elem.data(options.conditions[i]['key'])) === false) {
                         found = false;
                         break;
@@ -33,10 +34,12 @@ define(function(require) {
 
         generateRegex = function(strings) {
             var regexString = '',
-                i = 0;
+                i = 0,
+                len;
 
             if (strings && strings.length && strings.length > 0) {
-                for (; i < strings.length; i++) {
+                len = strings.length;
+                for (; i < len; i++) {
                     regexString += '(?=.*' + strings[i] + ')';
                 }
             }
@@ -46,16 +49,18 @@ define(function(require) {
 
         highlight = function(text, keys) {
             var regexString = '',
-                i = 0;
+                i = 0,
+                len;
 
             if (!text || !keys) {
                 return undefined;
             }
 
             if (keys && keys.length && keys.length > 0) {
-                for (; i < keys.length; i++) {
+                len = keys.length;
+                for (; i < len; i++) {
                     regexString += '(' + keys[i] + ')';
-                    if (i < keys.length - 1) {
+                    if (i < len - 1) {
                         regexString += '|';
                     }
                 }
