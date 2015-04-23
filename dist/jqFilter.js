@@ -40,7 +40,7 @@ define(function(require) {
             if (strings && strings.length && strings.length > 0) {
                 len = strings.length;
                 for (; i < len; i++) {
-                    regexString += '(?=.*' + strings[i] + ')';
+                    regexString += '(?=.*' + _sanitize(strings[i]) + ')';
                 }
             }
 
@@ -67,6 +67,10 @@ define(function(require) {
             }
 
             return (new String(text)).replace(new RegExp(regexString, 'ig'), '<span class="highlight" style="background-color: yellow;">$&</span>');
+        },
+
+        _sanitize = function(string) {
+            return string.replace(/[\.\*\\\|\(\)\[\]\?\$\^\+]+/,"\\$");
         };
 
     return {
