@@ -1,13 +1,3 @@
-// define([
-//     'intern!object',
-//     'intern/chai!assert',
-//     'dist/jqFilter',
-//     'cheerio'
-//     // 'jquery'
-// ], function(registerSuite, assert, jqFilter, cheerio) {
-// ], function(registerSuite, assert, jqFilter, $) {
-// ], function(registerSuite, assert, jqFilter) {
-
 define(function(require) {
     var registerSuite = require('intern!object'),
         assert = require('intern/chai!assert'),
@@ -22,23 +12,11 @@ define(function(require) {
         },
 
         'Test findAndModify': function() {
-            // if (typeof window === 'undefined') {
-            //     this.skip('Browser-only test');
-            // }
-            // // try {
-            // //     $;
-            // // } catch (exception) {
-            // // }
-            console.log('HERE');
             if (typeof window === 'undefined') {
-                // this.skip('Browser-only test');
-                console.log("WINDOW undefined");
                 var dfd = this.async(5000);
-                // var cheerio = require('cheerio');
+
                 require(['cheerio'], function(cheerio) {
-                    console.log('blah');
                     $ = cheerio.load('<div id="list"><div data-search="foo">foo</div><div data-search="bar">bar</div></div>');
-                    // $ = require('jquery');
                     $.html();
 
                     var $list = $('#list div'),
@@ -65,18 +43,10 @@ define(function(require) {
                     dfd.resolve();
                 });
             } else if (typeof $ === 'undefined') {
-                console.log("$ undefined");
                 var dfd = this.async(5000);
-                // var cheerio = require('cheerio');
-                require(['jquery'], function(jquery) {
-                // require(['intern/order!../../bower_components/jquery/dist/jquery.min.js'], function(jquery) {
-                    console.log('blah');
-                    // $ = cheerio.load('<div id="list"><div data-search="foo">foo</div><div data-search="bar">bar</div></div>');
-                    // $ = require('jquery');
-                    // $.html();
-                    window.$ = jquery;
 
-                    // $('<div id="list"><div data-search="foo">foo</div><div data-search="bar">bar</div></div>');
+                require(['jquery'], function(jquery) {
+                    window.$ = jquery;
 
                     var $list = $('<div id="list"><div data-search="foo">foo</div><div data-search="bar">bar</div></div>').find('div'),
                         searchRegex = jqFilter.generateRegex(['foo']),
@@ -102,7 +72,6 @@ define(function(require) {
                     dfd.resolve();
                 });
             } else {
-                console.log('NOT');
                 var $list = $('#list div'),
                     searchRegex = jqFilter.generateRegex(['foo']),
                     conditions = [{
