@@ -49,13 +49,26 @@ define({
     //     'host-browser': 'node_modules/dojo/dojo.js'
     // },
     useLoader: {
-        'host-node': 'requirejs',
-        'host-browser': '../node_modules/requirejs/require.js'
+        'host-node': 'requirejs', // host-node specifies the loader to use in Node.js. This should be a Node.js module ID.
+        'host-browser': '../../bower_components/requirejs/require.js' // host-browser specifies the loader to use in browsers. This should be a URL to a script file.
     },
 
     // Configuration options for the module loader; any AMD configuration options supported by the specified AMD loader
     // can be used here
-    loader: {},
+    loader: {
+        paths: {
+            baseUrl: '.',
+            // the left side is the module ID,
+            // the right side is the path to
+            // the jQuery file, relative to baseUrl.
+            // Also, the path should NOT include
+            // the '.js' file extension. This example
+            // is using jQuery 1.9.0 located at
+            // js/lib/jquery-1.9.0.js, relative to
+            // the HTML page.
+            jquery: "bower_components/jquery/dist/jquery.min"
+        }
+    },
 
     // Non-functional test suite(s) to run in each browser
     // suites: [ /* 'myPackage/tests/foo', 'myPackage/tests/bar' */ ],

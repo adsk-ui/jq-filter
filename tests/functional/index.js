@@ -8,7 +8,7 @@ define([
     registerSuite({
         name: 'index',
 
-        'one': function() {
+        'Test one': function() {
             return this.remote
                 .get(require.toUrl('./index.html'))
                 .setFindTimeout(5000)
@@ -20,7 +20,7 @@ define([
                 .end();
         },
 
-        'two': function() {
+        'Test two': function() {
             return this.remote
                 .get(require.toUrl('./index.html'))
                 .findById('searchBox')
@@ -43,7 +43,7 @@ define([
                 .end()
         },
 
-        'three': function() {
+        'Test three': function() {
             return this.remote
                 .get(require.toUrl('./index.html'))
                 .findById('searchBox')
