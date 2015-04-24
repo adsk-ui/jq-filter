@@ -1,9 +1,7 @@
 define(['exports'], function (exports) {
     'use strict';
 
-    Object.defineProperty(exports, '__esModule', {
-        value: true
-    });
+    exports.__esModule = true;
     var findAndModify = function findAndModify(options) {
         var results = 0;
 
