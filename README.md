@@ -18,3 +18,8 @@ npm test
 ./node_modules/selenium-standalone/bin/selenium-standalone start
 ./node_modules/.bin/intern-runner config=tests/intern
 ```
+
+## Build
+```
+gulp build
+```
