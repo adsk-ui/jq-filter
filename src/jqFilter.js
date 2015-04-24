@@ -1,10 +1,4 @@
-define(['exports'], function (exports) {
-    'use strict';
-
-    Object.defineProperty(exports, '__esModule', {
-        value: true
-    });
-    var findAndModify = function findAndModify(options) {
+var findAndModify = function(options) {
         var results = 0;
 
         options = options || {};
@@ -15,13 +9,13 @@ define(['exports'], function (exports) {
         options.foundCallback = options.foundCallback || $.noop;
         options.notFoundCallback = options.notFoundCallback || $.noop;
 
-        options.$selector.each(function () {
+        options.$selector.each(function() {
             var $elem = $(this),
                 found = true,
                 i = 0,
                 len = options.conditions.length;
             for (; i < len; i++) {
-                if (options.conditions[i].val.test($elem.data(options.conditions[i].key)) === false) {
+                if (options.conditions[i]['val'].test($elem.data(options.conditions[i]['key'])) === false) {
                     found = false;
                     break;
                 }
@@ -36,7 +30,8 @@ define(['exports'], function (exports) {
 
         return results;
     },
-        generateRegex = function generateRegex(strings) {
+
+    generateRegex = function(strings) {
         var regexString = '',
             i = 0,
             len;
@@ -50,7 +45,8 @@ define(['exports'], function (exports) {
 
         return new RegExp(regexString, 'ig');
     },
-        highlight = function highlight(text, keys) {
+
+    highlight = function(text, keys) {
         var regexString = '',
             i = 0,
             len;
@@ -69,13 +65,13 @@ define(['exports'], function (exports) {
             }
         }
 
-        return new String(text).replace(new RegExp(regexString, 'ig'), '<span class="highlight" style="background-color: yellow;">$&</span>');
+        return (new String(text)).replace(new RegExp(regexString, 'ig'), '<span class="highlight" style="background-color: yellow;">$&</span>');
     },
-        _sanitize = function _sanitize(string) {
-        return string.replace(/[\.\*\\\|\(\)\[\]\?\$\^\+]+/, '\\$');
+
+    _sanitize = function(string) {
+        return string.replace(/[\.\*\\\|\(\)\[\]\?\$\^\+]+/, "\\$");
     };
 
-    exports.findAndModify = findAndModify;
-    exports.generateRegex = generateRegex;
-    exports.highlight = highlight;
-});
+export {
+    findAndModify, generateRegex, highlight
+}
