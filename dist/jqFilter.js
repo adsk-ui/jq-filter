@@ -19,7 +19,7 @@ define(['exports'], function (exports) {
                 i = 0,
                 len = options.conditions.length;
             for (; i < len; i++) {
-                if (options.conditions[i].val.test($elem.data(options.conditions[i].key)) === false) {
+                if (options.conditions[i]['val'].test($elem.data(options.conditions[i]['key'])) === false) {
                     found = false;
                     break;
                 }
@@ -69,6 +69,9 @@ define(['exports'], function (exports) {
 
         return new String(text).replace(new RegExp(regexString, 'ig'), '<span class="highlight" style="background-color: yellow;">$&</span>');
     },
+        removeHighlight = function removeHighlight($currentText, originalText) {
+        $currentText.find('.name').html(originalText);
+    },
         _sanitize = function _sanitize(string) {
         return string.replace(/[\.\*\\\|\(\)\[\]\?\$\^\+]+/, '\\$');
     };
@@ -76,4 +79,5 @@ define(['exports'], function (exports) {
     exports.findAndModify = findAndModify;
     exports.generateRegex = generateRegex;
     exports.highlight = highlight;
+    exports.removeHighlight = removeHighlight;
 });
