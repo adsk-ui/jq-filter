@@ -1,6 +1,6 @@
 {
     "name": "jq-filter",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Filters a jquery wrapped collection using data attributes, with callbacks along the way.  Default regexes for search and highlighting provided.",
     "main": "dist/jqFilter.js",
     "dependencies": {},

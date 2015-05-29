@@ -68,10 +68,14 @@ var findAndModify = function(options) {
         return (new String(text)).replace(new RegExp(regexString, 'ig'), '<span class="highlight" style="background-color: yellow;">$&</span>');
     },
 
+    removeHighlight = function($currentText, originalText) {
+        $currentText.find('.name').html(originalText);
+    },
+
     _sanitize = function(string) {
         return string.replace(/[\.\*\\\|\(\)\[\]\?\$\^\+]+/, "\\$");
     };
 
 export {
-    findAndModify, generateRegex, highlight
+    findAndModify, generateRegex, highlight, removeHighlight
 }
