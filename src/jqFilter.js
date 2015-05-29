@@ -69,7 +69,7 @@ var findAndModify = function(options) {
     },
 
     removeHighlight = function($currentText, originalText) {
-        $currentText.find('.name').html(originalText);
+        $currentText.html(originalText);
     },
 
     _sanitize = function(string) {

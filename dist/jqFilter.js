@@ -70,7 +70,7 @@ define(['exports'], function (exports) {
         return new String(text).replace(new RegExp(regexString, 'ig'), '<span class="highlight" style="background-color: yellow;">$&</span>');
     },
         removeHighlight = function removeHighlight($currentText, originalText) {
-        $currentText.find('.name').html(originalText);
+        $currentText.html(originalText);
     },
         _sanitize = function _sanitize(string) {
         return string.replace(/[\.\*\\\|\(\)\[\]\?\$\^\+]+/, '\\$');
